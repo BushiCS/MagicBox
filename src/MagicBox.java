@@ -4,6 +4,7 @@ public class MagicBox<T> {
     protected T[] items;
     protected int maxItemCount;
     protected int itemCount;
+    protected Random random = new Random();
 
     public MagicBox(int maxItemCount) {
         items = (T[]) new Object[maxItemCount];
@@ -24,7 +25,6 @@ public class MagicBox<T> {
 
     T pick() {
         int randomInt;
-        Random random = new Random();
         if (maxItemCount > itemCount) {
             throw new RuntimeException("Коробка не полна, осталось заполнить ячеек: " + (maxItemCount - itemCount));
         } else {
